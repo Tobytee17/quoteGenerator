@@ -26,3 +26,13 @@ header {
     margin: 5% 15% 0% 15%;
     background-color: #333;
 }
+
+.container #generate {
+    float: left;
+    margin: 5% 0% 0% 15%;
+}
+
+.container #create {
+    float:right;
+    margin: 5% 15% 0% 0%;
+}
