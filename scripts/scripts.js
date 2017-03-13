@@ -1,1 +1,3 @@
-alert('This is a pop-up');
+function loadQuote (){
+    document.getElementById('mainText').innerHTML = "memes";
+}
