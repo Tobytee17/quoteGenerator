@@ -1,16 +1,16 @@
 <?php
+$database = mysqli_connect("127.0.0.1", "root", "usbw", "quotes", 3307); //This connects to the database
+if (!$database) {
+    exit("Failed to connect");
+}
+
 //if statements check if something has been written in the fields
-if (isset($_POST['author'])) {
-    if (isset($_POST['text'])) {
-        if (isset($_POST['date'])) {
+if (isset($_POST['author']) && strlen($_POST['author'])) {
+    if (isset($_POST['text']) && strlen($_POST['author'])) {
+        if (isset($_POST['date']) && strlen($_POST['author'])) {
             $author = $_POST['author'];
             $text = $_POST['text'];
             $date = $_POST['date']; //Getting info user typed into boxes
-
-            $database = mysqli_connect("127.0.0.1", "root", "usbw", "quotes", 3307); //This connects to the database
-            if (!$database) {
-                exit("Failed to connect");
-            }
 
             $author = mysqli_real_escape_string($database, $author);
             $text = mysqli_real_escape_string($database, $text);
@@ -20,6 +20,11 @@ if (isset($_POST['author'])) {
         }
     }
 }
+
+$query = mysqli_query($database, "SELECT author, text, date FROM quotes;"); // select all quotes from the database
+$quotes = mysqli_fetch_all($query, MYSQLI_ASSOC); // fetch results
+$json = json_encode($quotes); // encode result array as JSON
+
 ?>
 
 <html>
@@ -27,8 +32,15 @@ if (isset($_POST['author'])) {
     <head>
         <link rel="stylesheet" href="css/styles.css" type="text/css">
         <link rel="stylesheet" href="css/popupForm.css" type="text/css">
+
+        <script type="text/javascript">
+            var quotes = "<?php echo addslashes($json); ?>";
+            quotes = JSON.parse(quotes);
+        </script>
+
         <script src="scripts/quote.js"></script>
         <script src="scripts/input.js"></script>
+
     </head>
 
     <body>

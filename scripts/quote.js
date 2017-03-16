@@ -3,6 +3,10 @@ var ran = null;
 //This function changes the text on screen with the quoteText
 function LoadQuote ()
 {
+    if (quotes.length == 0) {
+        return;
+    }
+
     var rand = GetRandomNumber();
     //Making sure it does not show the same quote in a row
     while(rand === ran)
