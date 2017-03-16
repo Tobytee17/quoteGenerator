@@ -1,8 +1,4 @@
 <?php
-//echo nl2br(print_r($_POST, true));
-
-
-
 //if statements check if something has been written in the fields
 if (isset($_POST['author'])) {
     if (isset($_POST['text'])) {
@@ -12,8 +8,7 @@ if (isset($_POST['author'])) {
             $date = $_POST['date']; //Getting info user typed into boxes
 
             $database = mysqli_connect("127.0.0.1", "root", "usbw", "quotes", 3307); //This connects to the database
-            if(!$database)
-            {
+            if (!$database) {
                 exit("Failed to connect");
             }
 
