@@ -64,7 +64,7 @@ $json = json_encode($quotes); // encode result array as JSON
                         <input id="author" name="author" placeholder="Author" type="text" />
                         <input id="date" name="date" placeholder="Date" type="text" />
                         <textarea id="text" name="text" placeholder="Quote"></textarea>
-                        <input type="submit" id="submit" />
+                        <input type="submit" id="submit" <?php unset($_POST);?>/>
                     </form>
                 </div>
             </div>
