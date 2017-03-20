@@ -14,6 +14,7 @@ if (isset($_POST['author']) && strlen($_POST['author'])) {
             $date = mysqli_real_escape_string($database, $date); //this is for safety so no SQL injection can happen
 
             mysqli_query($database, "INSERT INTO quotes(author, text, date) VALUES('{$author}', '{$text}', '{$date}');"); //creating query to add row into table with info
+            header('Location: index.php');
         }
     }
 }
@@ -64,7 +65,7 @@ $json = json_encode($quotes); // encode result array as JSON
                         <input id="author" name="author" placeholder="Author" type="text" />
                         <input id="date" name="date" placeholder="Date" type="text" />
                         <textarea id="text" name="text" placeholder="Quote"></textarea>
-                        <input type="submit" id="submit" <?php unset($_POST);?>/>
+                        <input type="submit" id="submit"/>
                     </form>
                 </div>
             </div>
