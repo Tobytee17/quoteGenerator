@@ -42,10 +42,10 @@ $json = json_encode($quotes); // encode result array as JSON
 
     <body>
         <header>
-            header
+            <a href="#">QuoteGenerator.org</a>
         </header>
 
-        <div class="container"> body
+        <div class="container">
             <h1>Quote Generator</h1>
 
             <div class="mainText" id="mainText">
@@ -53,7 +53,7 @@ $json = json_encode($quotes); // encode result array as JSON
             </div>
 
             <input type="button" id = "generate" onclick="LoadQuote()" value="Generate Quote" />
-            <input type="button" id = "create" onclick="ShowPopup()" value="Create Quote" />
+            <input type="button" id = "create" onclick="ShowPopup()" value="Submit Quote" />
 
             <div class="popup" id="popup">
                 <div id="popupContact">
